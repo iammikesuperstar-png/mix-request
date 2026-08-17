@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demandes de mix - Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Demande de mix - Studio 5.4</h1>
+    <p class="subtitle">Ouvrez cette page pour envoyer une demande</p>
+  </header>
+
+  <main class="container">
+    <section class="form-area">
+      <article class="info-section">
+        <h2>Bonjour!</h2>
+        <p>
+          Je m’appelle <strong>Michael Fontaine</strong> et j’offre gratuitement mes
+          services de création et de montage de mix musicaux pour le <strong>Studio 5.4</strong>.
+          Si la demande est hors studio, des frais peuvent s'appliquer. Nous en discuterons par mail.
+        </p>
+
+        <h3>Qui est admissible</h3>
+        <p>Le service est offert uniquement aux membres du staff du Studio 5.4. Les mix créés doivent servir exclusivement aux projets du studio (compétitions, récréatif, spectacles, adultes/enfants, etc.). Pour des projets externes personnels, des frais peuvent s'appliquer et seront discutés par mail.</p>
+
+        <h3>Comment faire une demande</h3>
+        <ol>
+          <li>Remplissez le formulaire ci-dessous.</li>
+          <li>Incluez des liens YouTube (jusqu'à 6) si vous en avez, avec les secondes de début/fin désirées pour chaque lien.</li>
+          <li>Si vous n'avez pas de liens, cochez l'option « Laissez-moi choisir » et indiquez le thème.</li>
+        </ol>
+
+        <h3>Types de mix offerts</h3>
+        <p>Mixs pour entraînement récréatif, compétitif, spectacles. Indiquez le type de mix et les contraintes.</p>
+
+        <h3>Contact</h3>
+        <p>Téléphone: <strong>581-989-1845</strong><br>Disponibilité: Lundi au vendredi, entre 9h00 et 18h00</p>
+
+        <h3>Modifications après réception</h3>
+        <p>Si vous souhaitez des ajustements : aucun problème! Indiquez précisément la section qui pose problème et je ferai les modifications.</p>
+
+        <p>Merci à tous, et n’hésitez vraiment pas – ça me fait toujours plaisir de vous aider!</p>
+      </article>
+
+      <form id="mixForm" method="POST">
+        <div class="two-cols">
+          <div>
+            <label for="prenom">Prénom</label>
+            <input id="prenom" name="prenom" type="text" required>
+          </div>
+          <div>
+            <label for="nom">Nom</label>
+            <input id="nom" name="nom" type="text" required>
+          </div>
+        </div>
+
+        <label for="email">Courriel de contact</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="coach">Nom du coach (si applicable)</label>
+        <input id="coach" name="coach" type="text">
+
+        <label for="group_name">Nom du groupe / Nom du danseur</label>
+        <input id="group_name" name="group_name" type="text">
+
+        <div class="two-cols">
+          <div>
+            <label for="mix_type">Type de mix</label>
+            <select id="mix_type" name="mix_type">
+              <option value="recreatif">Récréatif</option>
+              <option value="competitif">Compétitif</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="group_type">Type de groupe</label>
+            <select id="group_type" name="group_type">
+              <option value="solo">Solo</option>
+              <option value="duo">Duo</option>
+              <option value="groupe">Groupe</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="age_approx">Âge approximatif</label>
+          <select id="age_approx" name="age_approx"></select>
+        </div>
+
+        <label for="desired_duration">Durée du mix désirée</label>
+        <select id="desired_duration" name="desired_duration"></select>
+
+        <label for="dance_style">Style de danse (écrire)</label>
+        <input id="dance_style" name="dance_style" type="text">
+
+        <fieldset class="links-area">
+          <legend>Liens YouTube (jusqu'à 6)</legend>
+          <div id="linksContainer"></div>
+          <div class="links-actions">
+            <button type="button" id="addLinkBtn">Ajouter un lien</button>
+            <label class="choose-option"><input type="checkbox" id="noLinksChoice" name="no_links_choice"> Laissez-moi choisir les liens selon ce thème</label>
+            <input id="theme" name="theme" placeholder="Thème (si vous laissez le choix)" disabled>
+          </div>
+        </fieldset>
+
+        <label for="notes">Instructions / Notes</label>
+        <textarea id="notes" name="notes" rows="5"></textarea>
+
+        <!-- champ Formspree pour répondre à l'expéditeur si utilisé -->
+        <input type="hidden" name="_replyto" id="_replyto">
+        <input type="hidden" name="_subject" value="Nouvelle demande de mix - Studio 5.4">
+
+        <div class="actions">
+          <button type="submit" id="submitBtn">Envoyer la demande</button>
+        </div>
+
+        <p id="status" class="status"></p>
+      </form>
+
+      <p class="note">Si vous n'avez pas configuré Formspree, le formulaire proposera d'ouvrir votre client mail en mode pré-rempli. Remplacez l'adresse de réception dans script.js.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+  </footer>
+
+  <audio id="bgAudio" src="assets/audio/press-play.mp3" preload="auto" loop></audio>
+  <script src="script.js"></script>
+</body>
+</html>
